@@ -50,6 +50,7 @@
 		<!--<property name="configLocation" value ="WEB-INF/mybatis-config.xml" /> --><!-- por si se quiere definir propiesdades dentro de un archivo de configuracion puro de mybatis -->
  	</bean>
  	
+ 	
  	<!-- para definir las interfaces mappers -->
  	<bean id="registroInterfaceMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="distribuidos.dao.RegistroDAO" />
