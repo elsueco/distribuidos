@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd  
+     http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd"
+     >
+	
+	<context:annotation-config /> <!-- para activar las anotaciones de Spring-->
+	
+	<context:component-scan base-package="distribuidos" /><!-- Sirve para indicarle a Spring el paquete donde buscara nuestros beans anotados -->
+	
+	<!-- atraves de la etiqueta property definimos propiedades que podran ser usadas en todo el documento para sustituir valores -->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>/WEB-INF/resources/jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Sirve para configuar la conexion a la base de datos  -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+	
+	<!-- para determinar como se deben manejar las transacciones, por defecto es JDBC (commits y rollbacks) la otra es MANAGED pero esa tiene que indicarse -->
+	<!--  
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+	-->
+	<!-- Si estás pensando en usar MyBatis con Spring no necesitas configurar ningún TransactionManager porque el módulo de Spring configurará el suyo propio sobrescribiendo cualquier otra configuración previa. -->
+	
+	<tx:annotation-driven/><!-- para activar las anotaciones del transaccional, propia de Spring-->
+	
+	<!-- para obtener una instancia de la clase sqlSessionFactory pues mybatis necesita una instancia de esta para poder trabajar -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations" value="classpath*:distribuidos/mapper/*.xml" /> 
+		<property name="typeAliasesPackage" value="distribuidos.model"/>  
+		<!--<property name="configLocation" value ="WEB-INF/mybatis-config.xml" /> --><!-- por si se quiere definir propiesdades dentro de un archivo de configuracion puro de mybatis -->
+ 	</bean>
+ 	
+ 	<!-- para definir las interfaces mappers -->
+ 	<bean id="registroInterfaceMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="distribuidos.dao.RegistroDAO" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+</beans>
