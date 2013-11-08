@@ -9,7 +9,6 @@ import distribuidos.model.Registro;
 public interface RegistroDAO {
 
 	public List<Registro> listarXNombre(@Param("nombre") String nombre);
-	
 	public List<Registro> listarXPlaca(@Param("placa") String placa);
 	
 }

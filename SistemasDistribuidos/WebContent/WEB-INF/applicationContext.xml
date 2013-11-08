@@ -51,6 +51,7 @@
  	</bean>
  	
  	
+ 	
  	<!-- para definir las interfaces mappers -->
  	<bean id="registroInterfaceMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="distribuidos.dao.RegistroDAO" />
