@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+<h:head>
+	<title>laboratorio-ssdd</title>
+	<link rel="stylesheet" href="../../css/bootstrap.css"/>
+</h:head>
+
+<h:body>
+	
+	<div class="container">
+			<div class="row">
+			<h1>TAREA DE LABORATORIO 1</h1>
+	 
+	 <h:form>
+	  	
+	  	<p:tabView>
+	  			<p:tab title="Consulta 3" id="Godfather3">   
+			      	
+			      	<p:panel header="Busqueda por Placa 2">  
+				        <h:panelGrid columns="3" cellpadding="10">  
+				            <h:outputLabel value="Ingrese la placa: "/>  
+						 	<p:inputText type="text" value="#{registroController.placa1}"/>
+						 	<button  class="btn btn-primary" jsf:action="#{registroController.consulta2}" jsf:update="data_nombre">Buscar</button>             
+				        </h:panelGrid>   		         
+				    </p:panel>  
+				     <p:dataTable id="data_todo" var="placa1" value="#{registroController.listaPlaca1}" emptyMessage="No se ha realizado la busqueda" style="overflow:auto" >  
+				        <p:column headerText="Modalidad">  
+				            <h:outputText value="#{placa1.nombre_modalidad_servicio}" />  
+				        </p:column>
+				        <p:column headerText="Clase">  
+				            <h:outputText value="#{placa1.nombre_clase_vehiculo}" />  
+				        </p:column>
+				        <p:column headerText="Fabricacion">  
+				            <h:outputText value="#{placa1.ano_fabricacion}" />  
+				        </p:column>
+				        <p:column headerText="modelo">  
+				            <h:outputText value="#{placa1.nombre_modelo}" />  
+				        </p:column>
+				        <p:column headerText="marca">  
+				            <h:outputText value="#{placa1.nombre_marca}" />  
+				        </p:column>
+				        <p:column headerText="serie">  
+				            <h:outputText value="#{placa1.numero_serie}" />  
+				        </p:column> 
+				        <p:column headerText="serie_mootor">  
+				            <h:outputText value="#{placa1.numero_serie_motor}" />  
+				        </p:column>
+				        <p:column headerText="combustible">  
+				            <h:outputText value="#{placa1.nombre_tipo_combustible}" />  
+				        </p:column>
+				        <p:column headerText="peso_seco">  
+				            <h:outputText value="#{placa1.peso_seco}" />  
+				        </p:column> 
+				        <p:column headerText="peso_bruto">  
+				            <h:outputText value="#{placa1.peso_bruto}" />  
+				        </p:column>      
+				        <p:column headerText="longitud">  
+				            <h:outputText value="#{placa1.longitud}" />  
+				        </p:column>
+				        <p:column headerText="altura">  
+				            <h:outputText value="#{placa1.altura}" />  
+				        </p:column> 
+				        <p:column headerText="ancho">  
+				            <h:outputText value="#{placa1.ancho}" />  
+				        </p:column>
+				        <p:column headerText="carga_util">  
+				            <h:outputText value="#{placa1.carga_util}" />  
+				        </p:column>
+				        <p:column headerText="N_pajasero">  
+				            <h:outputText value="#{placa1.capacidad_pasajero}" />  
+				        </p:column> 
+				        <p:column headerText="N_asiento">  
+				            <h:outputText value="#{placa1.numero_asiento}" />  
+				        </p:column>                    
+				        <p:column headerText="N_ruedas">  
+				            <h:outputText value="#{placa1.numero_rueda}" />  
+				        </p:column>  
+				        <p:column headerText="N_eje">  
+				            <h:outputText value="#{placa1.numero_eje}" />  
+				        </p:column> 
+				        <p:column headerText="N_puerta">  
+				            <h:outputText value="#{placa1.numero_puerta}" />  
+				        </p:column>
+				        <p:column headerText="fecha_inscripcion">  
+				            <h:outputText value="#{placa1.fecha_inscripcion_vehiculo}" />  
+				        </p:column> 
+				        <p:column headerText="tipo_documento">  
+				            <h:outputText value="#{placa1.nombre_tipo_documento}" />  
+				        </p:column> 
+				        <p:column headerText="documento">  
+				            <h:outputText value="#{placa1.documento}" />  
+				        </p:column>                   
+				        <p:column headerText="propietario">  
+				            <h:outputText value="#{placa1.propietario}" />  
+				        </p:column>  
+		   			 </p:dataTable>  
+		   			 <br/>
+		   			 <a href="../principal.xhtml" class="btn btn-primary" role="button" style="color:white;">Regresar </a>
+		        </p:tab> 
+	  			
+	    	</p:tabView> 
+	    </h:form>
+
+			</div>
+		</div>
+	</h:body>
+
+</html>

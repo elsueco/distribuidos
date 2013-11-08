@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:p="http://primefaces.org/ui"
+		xmlns:h="http://java.sun.com/jsf/html"
+		>
+
+	<h:head>
+		<title>laboratorio-ssdd</title>
+		<link rel="stylesheet" href="../css/bootstrap.css"/>
+	</h:head>
+
+	<h:body>
+		<div class="container">
+			<div class="row">
+				 <h1> LABORATORIO 1 - SISTEMAS DISTRIBUIDOS </h1>
+		 <h:form>
+	    	<p:tabView>  
+	    	
+	 			<p:tab title="CONSULTA 1">   
+			      	
+			      	<p:panel header="Busqueda por Nombre">  
+				        <h:panelGrid columns="3" cellpadding="10">  
+				           <h:outputText  
+		                			value="Dado el nombre de un propietario mostrar los datos de los vehículos a su nombre" />           
+				        </h:panelGrid>   		         
+				    </p:panel> 
+				    <br/>
+				    <a class="btn btn-primary" href="consultas/primeraConsulta.xhtml"  role="button" style="color:white;" >Realizar consulta</a>
+		        </p:tab> 
+
+	 			<p:tab title="CONSULTA 2">   
+			      	
+			      	<p:panel header="Busqueda por Placa 1">  
+				        <h:panelGrid columns="3" cellpadding="10">  
+				           <h:outputText   
+		                			value=" Dado la placa de un vehículo, dar los nombres de los propietarios así como modelo, número
+										  de serie del motor y tipo de auto.." />           
+				        </h:panelGrid>   		         
+				    </p:panel> 
+				    <br/>
+				    <a class="btn btn-primary" href="consultas/segundaConsulta.xhtml" role="button" style="color:white;">Realizar consulta </a>
+		        </p:tab> 
+	 
+	 			<p:tab title="CONSULTA 3" >   
+			      	
+			      	<p:panel header="Busqueda por Placa 2">  
+				        <h:panelGrid columns="3" cellpadding="10">  
+				           <h:outputText id="tab1Text"  
+		                			value="Dada la placa del auto se devuelvan todos los datos del automóvil registrado." />           
+				        </h:panelGrid>   		         
+				    </p:panel> 
+				    <br/>
+				    <a class="btn btn-primary" href="consultas/terceraConsulta.xhtml" role="button" style="color:white;">Realizar consulta </a>
+		        </p:tab> 
+		   	</p:tabView>
+	    </h:form>
+			</div>
+		</div>
+	</h:body>
+</html>

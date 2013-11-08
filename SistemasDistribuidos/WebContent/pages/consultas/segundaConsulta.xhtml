@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+	
+	<h:head>
+		<title>laboratorio-ssdd</title>
+		<link rel="stylesheet" href="../../css/bootstrap.css"/>
+	</h:head>
+	
+	<h:body>
+		<div class="container">
+			<div class="row">
+			
+			<h1>TAREA DE LABORATORIO 1</h1>
+	 
+	    <h:form>
+	    	<p:tabView id="tabView" dynamic="true">  
+
+	 			<p:tab title="Consulta 2" id="Godfather2">   
+			      	
+			      	<p:panel header="Busqueda por Placa 1">  
+				        <h:panelGrid columns="3" cellpadding="10">  
+				            <h:outputLabel value="Ingrese la placa: "/>  
+						 	<p:inputText type="text" value="#{registroController.placa1}"/>
+						 	 <button  class="btn btn-primary" jsf:action="#{registroController.consulta2}" jsf:update="data_nombre">Buscar</button>           
+				        </h:panelGrid>   		         
+				    </p:panel>  
+
+				     <p:dataTable id="data_placa" var="placa" value="#{registroController.listaPlaca1}" emptyMessage="No se ha realizado la busqueda">  
+				        <p:column headerText="Propietario">  
+				            <h:outputText value="#{placa.propietario}" />  
+				        </p:column>
+				        <p:column headerText="modelo">  
+				            <h:outputText value="#{placa.nombre_modelo}" />  
+				        </p:column>
+				        <p:column headerText="serie de motor">  
+				            <h:outputText value="#{placa.numero_serie_motor}" />  
+				        </p:column>
+				        <p:column headerText="tipo">  
+				            <h:outputText value="#{placa.nombre_clase_vehiculo}" />  
+				        </p:column>       
+		   			 </p:dataTable>
+		   			 <br/>
+					<a href="../principal.xhtml" class="btn btn-primary" role="button" style="color:white;">Regresar </a>
+		        </p:tab> 
+		        </p:tabView> 
+			
+	  			
+	    </h:form>
+    
+		
+	
+			</div>
+		</div>
+		</h:body>
+
+</html>

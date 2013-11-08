@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+  'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+
+<mapper namespace="distribuidos.dao.RegistroDAO">
+
+	<!-- como los atributos de la clase coincide con el nombre de la columnas en la tabla no es necesario usar resultmap por loque solo usaremos resultype -->
+
+	<select id="listarXNombre" resultType="registroModel">
+		select 
+			* 
+		from 
+			directorio 
+		where 
+			propietario like #{nombre}
+	</select>
+	
+	<select id="listarXPlaca" resultType="registroModel">
+		select 
+			* 
+		from 
+			directorio 
+		where 
+			placa like #{placa}
+	</select>
+
+</mapper>
